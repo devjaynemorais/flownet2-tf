@@ -3,7 +3,7 @@
 TF_INC = `python -c "import tensorflow; print(tensorflow.sysconfig.get_include())"`
 
 ifndef CUDA_HOME
-    CUDA_HOME := /usr/local/cuda
+    CUDA_HOME := /usr/local/cuda-8.0
 endif
 
 CC        = gcc -O2 -pthread
