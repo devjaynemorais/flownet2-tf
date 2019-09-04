@@ -12,14 +12,15 @@ DIRECTORY = "videos/"
 
 
 def run():
-    vector_np = []
-    for name in os.listdir(DIRECTORY):
-        if os.path.isdir(os.path.join(DIRECTORY, name)):
-            print(name)
-            for file in os.listdir(os.path.join(DIRECTORY, name)):
-                if os.path.isfile(os.path.join(DIRECTORY, name, file)):
-                    #rint(os.path.join(DIRECTORY, name, file))
-                    vector_np.append(os.path.join(DIRECTORY, name, file))
+    
+    for dir in os.listdir(DIRECTORY):
+        if os.path.isdir(os.path.join(DIRECTORY, dir)):
+            print(dir)
+            vector_np = np.array([])
+            for file in os.listdir(os.path.join(DIRECTORY, dir)):
+                if os.path.isfile(os.path.join(DIRECTORY, dir, file)):
+                    #rint(os.path.join(DIRECTORY, dir, file))
+                    vector_np = np.append(vector_np, os.path.join(DIRECTORY, dir, file))
             vector_np.sort()
             print(vector_np)
         
