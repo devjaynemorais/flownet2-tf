@@ -1,4 +1,8 @@
 
+#To execute
+#python3 extract_video_framev2.py 
+#Python 3.5.2
+
 import numpy as np
 import cv2
 import os, sys
