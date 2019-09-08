@@ -48,9 +48,10 @@ def extract_image_one_fps(video, new_directory):
         
         if(np.array_equal(image, image_last) or (success == False)):
             break
-
         
-        cv2.imwrite(new_directory+"/frame%d.png" % count, image)     # save frame as PNG file
+        dimensions = (512, 384)
+        resized_image = cv2.resize(image, dimensions, interpolation = cv2.INTER_AREA)
+        cv2.imwrite(new_directory+"/frame%d.png" % count, resized_image)     # save frame as PNG file
         
         print('{}s reading a new frame: {} '.format(count,success))
         print('Saving frame{}.png'.format(count))

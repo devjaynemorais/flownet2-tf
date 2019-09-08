@@ -10,7 +10,8 @@ import cv2
 import os, sys, glob
 import re
 
-from itertools import zip_longest as zip
+#from itertools import zip_longest as zip
+#from itertools import zip_longest
 
 DIRECTORY = "videos/"
 PATH = "/home/jayne/Documentos/flownet2-tf"
@@ -60,14 +61,14 @@ def run():
            # new_dict = dict(zip(array_key, array_value))
             #for i in sorted (new_dict.keys()):  
             #    print((i , new_dict[i]), end = " ") 
-            #os.chdir('..')
+            os.chdir('..')
             for i in range(len(vector_np)-1):
                 #print((vector_np[i]) + " ----------- " + vector_np[i+1])
                #bashCommand = "cd ../.."
-                print(os.getcwd())
+                print("python -m src.flownet2.test --input_a {} --input_b {} --out ./".format(str("videoScripts/"+vector_np[i]), str('videoScripts/'+vector_np[i+1])))
 
                 #os.system(bashCommand)
-                os.chdir("python -m "+PATH+"/src.flownet2.test --input_a {} --input_b {} --out ./".format(str(PATH+"/videoScripts/"+vector_np[i]), str(PATH+'/videoScripts/'+vector_np[i+1])))
+                os.system("python -m src.flownet2.test --input_a {} --input_b {} --out ./".format(str("videoScripts/"+vector_np[i]), str('videoScripts/'+vector_np[i+1])))
                # print(bashCommand)
                 #os.system(bashCommand)
 
